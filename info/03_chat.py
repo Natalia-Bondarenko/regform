@@ -4,8 +4,11 @@ add - добавить задачу в список (название задач
 show - напечатать все добавленные задачи.
 """
 
-# Список задач
-tasks = []
+# Ключ - значение (список)
+tasks = {
+
+
+}
 
 run = True
 
@@ -16,9 +19,18 @@ while run:
     elif command == "show":   # Задача Вывод
         print(tasks)
     elif command == "add":    # Задача Добавить
-        task = input("Введите название задачи ")
-        tasks.append(task)
-        print("Задача добавлена")
+        date = input("Введите дату для добавления задачи:  ")
+        task = input("Введите название задачи: ")
+        if date in tasks:
+            # Дата есть в словаре
+            # Добавляем в список задачу
+            tasks[date].append(task)
+        else:
+            # Даты в словаре нет
+            # Создаём запись с ключом date
+            tasks[date] = []
+            tasks[date].append(task)
+        print("Задача ", task, " добавлена на дату ", date)
     else:
         print("Неизвестная команда")
         break
