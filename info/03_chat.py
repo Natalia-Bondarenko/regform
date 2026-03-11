@@ -31,6 +31,9 @@ while run:
             tasks[date] = []
             tasks[date].append(task)
         print("Задача ", task, " добавлена на дату ", date)
+    elif command == "exit":
+        print("Спасибо за использование! До свидания!")
+        run = False
     else:
         print("Неизвестная команда")
         break
