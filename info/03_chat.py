@@ -17,7 +17,12 @@ while run:
     if command == "help":     # Задача Справка
         print(HELP)
     elif command == "show":   # Задача Вывод
-        print(tasks)
+        date = input("Введите дату для отображения списка задач")
+        if date in tasks:
+            for task in tasks[date]:
+                print('- ', task)
+        else:
+            print("Такой даты нет.")
     elif command == "add":    # Задача Добавить
         date = input("Введите дату для добавления задачи:  ")
         task = input("Введите название задачи: ")
